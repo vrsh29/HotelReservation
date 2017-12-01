@@ -1,0 +1,12 @@
+
+
+.header .image {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+}
+
+.header .text {
+    display: inline-block;
+    align-content: center;
+}
