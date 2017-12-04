@@ -1,3 +1,54 @@
-<p>
-  search-page works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="outside1">
+        <h1>Hotel Application</h1>
+          <div class="image">
+              <h5 class="footer">Accenture 2017</h5>
+            <img src="/assets/images/main-footer.jpg">
+          </div>
+        </div>
+      </div>
+
+      <div class="containerfluid" class="align">
+          <div class="row">
+            <div class="col-md-3">
+              <img class="main" src="/assets/images/main.jpg">
+            </div>
+            
+            <div class="col-md-9" class="body">
+                <h3>Search Hotels</h3>
+                <div class="table">Search String :
+                    <div class="dropdown"><br>Maximum Results:
+                <button align="left" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span>1</span></button>
+                 <ul class="dropdown-menu">
+                 <li><a href="#">1</a></li>
+                 <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li> 
+            </ul>
+        </div>
+            <button (click)="onSearch(new.value)" type="button" class="btn btn-success" routerLink="/search" routerLinkActive="active">Find Hotels</button>
+            <ul><li *ngFor="let Hotel of Hotels">{{Hotel}}</li></ul>
+            <ul><li *ngFor="let num of Number">{{Number}}</li></ul>
+        </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
