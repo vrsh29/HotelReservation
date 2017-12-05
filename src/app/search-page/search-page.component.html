@@ -28,11 +28,20 @@
               <img class="main" src="/assets/images/main.jpg">
             </div>
             
-            <div class="col-md-9" class="body">
+            <h3><i>Search </i></h3>
+            <form [formGroup]="heroForm" novalidate>
+              <div class="form-group">
+                <label class="center-block">Name:
+                  <input class="form-control" formControlName="name">
+                </label>
+              </div>
+
+            <!-- <div class="col-md-9" class="body">
                 <h3>Search Hotels</h3>
                 <form action="">
                   Search String : <input type="text" name="Search"><br>
                   <input type="submit" value="Submit">
+                </form>
                     <div class="dropdown"><br>Maximum Results:
                 <button align="left" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span>1</span></button>
                  <ul class="dropdown-menu">
@@ -43,14 +52,10 @@
             <li><a href="#">5</a></li>
             <li><a href="#">6</a></li> 
             </ul>
-        </div>
-            <button (click)="onSearch(new.value)" type="button" class="btn btn-success" routerLink="/search" routerLinkActive="active">Find Hotels</button>
-            <ul><li *ngFor="let Hotel of Hotels">{{Hotel}}</li></ul>
-            <ul><li *ngFor="let num of Number">{{Number}}</li></ul>
-        </div>
+        </div> -->
+        <button (click)="onSearch(new.value)" type="button" class="btn btn-success" routerLink="/search" routerLinkActive="active">Find Hotels</button>
         </div>
       </div>
     </div>
-  </form>
 </body>
 </html>
