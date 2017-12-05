@@ -26,19 +26,17 @@
             </div>        
             <div class="col-md-9">
             <h3><i>Search Hotels</i></h3>
-            <form ng-submit="doSearch(hotelForm.value)" [formGroup]="hotelForm">
+            <form (ngsubmit)="doSearch(hotelForm.value)" [formGroup]="hotelForm">
               <div class="form-group">
                 <label class="center-block">Search String:
                   <input class="form-control" formControlName="Search_String">
                 </label>
             </div>
           </form>
-          <form ng-submit="doSearch(hotelForm.value)" [for
-              <div class="form-group">
-                  <label class="center-block">Maximum Result:</label>
-            </div>
-          </form>
-          
+                  <label class="center-block">Maximum Result:
+                    <button type="dropdown" class="dropdown-toggle"></button>
+                  </label>
+  
           <button type="button"  class="btn btn-success" [routerLink]="['/results',hotelForm.get('Search_String').value ]">Find Hotels</button>
                 <p>value: {{ hotelForm.get('Search_String').value }}</p>
         </div>
