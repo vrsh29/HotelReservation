@@ -8,15 +8,4 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // Define a Hotels property to hold our Hotels data
-  Hotels: Array<any>;
-
-  // Create an instance of the DataService through dependency injection
-  constructor(private _dataService: DataService) {
-
-    // Access the Data Service's getUsers() method we defined
-    this._dataService.getHotelDetails()
-        .subscribe(res => this.Hotels = res);
-        console.log('sdsds');
-  }
 }

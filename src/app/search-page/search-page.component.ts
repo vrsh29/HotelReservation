@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators, FormControl, FormsModule,  } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+import { Router, RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-search-page',
@@ -9,17 +10,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class SearchPageComponent {
-  num = [1, 2, 3 , 4, 5, 6, 7, 8];
-  heroForm: FormGroup;
+num = [1, 2, 3 , 4, 5, 6, 7, 8];
 
-  constructor(private fb: FormBuilder){
-    this.createForm();
+  // numForm = new FormGroup({
+  //   MaxResults: new FormControl
+  // });
+
+  // hotelForm= new FormGroup({
+  //   Search_String: new FormControl
+  // });
+
+  constructor(private fb: FormBuilder, private router: Router) {
   }
 
-  createForm() {
-    this.heroForm = this.fb.group({
-      Search_String: [''],
-      Maximum_Result: '',
-    });
-  }
+  doSearch(value){
+  this.router.navigate(['result'],value.Search_String);
+}
 }

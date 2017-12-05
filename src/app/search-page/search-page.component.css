@@ -35,8 +35,7 @@ h1
 
 .main
 {
-    padding-top: 200px;
-    height: -webkit-fill-available;
+    padding-top: 100px;
 }
 .body
 {
@@ -53,9 +52,8 @@ h1
     height: 185px;
 }
 
-#textbox1 {
-    display: block;
-    float: left;    
-    width: 100px;    
-    height: 100px;    
+.align
+{
+    padding-top: 200px;
+   
 }

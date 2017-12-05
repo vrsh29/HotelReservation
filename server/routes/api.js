@@ -7,7 +7,6 @@ const ObjectID = require('mongodb').ObjectID;
 const connection = (closure) => {
     return MongoClient.connect('mongodb://localhost:27017/HotelBookingDB', (err, db) => {
         if (err) return console.log(err);
-
         closure(db);
     });
 };
@@ -29,17 +28,39 @@ let response = {
 // Get Hotel
 router.get('/Hotel', (req, res) => {
     connection((db) => {
-        db.collection('Hotel')
-            .find()
+        db.collection('Hotel').find()
+            //.find({$or:[{Address:req.query.location},{City:req.query.location}]})
             .toArray()
             .then((Hotel) => {
                 response.data = Hotel;
                 res.json(response);
+                console.log(hotel)
             })
             .catch((err) => {
                 sendError(err, res);
             });
+        });
+    });
+
+            router.get('/getHotelDetails', (req, res) => {
+                
+                 console.log("==============:"+req.query);
+                  connection((db) => {
+                      db.collection('Hotel')
+                          .find({_id:{$eq:req.query.id}})
+                          .toArray()
+                          .then((Hotel) => {
+                              response.data = Hotel;
+                              res.json(response);
+              
+                             console.log(Hotel)
+                          })
+                          .catch((err) => {
+                              sendError(err, res);
+            });
     });
 });
+
+
 
 module.exports = router;
