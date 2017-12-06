@@ -1,45 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-    
+<div class="container-fluid">
+  <div class="row">
+    <div class="outer-header">
     <div class="header">
-        <div class="outside1">
-        <h1>Hotel Application</h1>
-          <div class="image">
-              <h5 class="footer">Accenture 2017</h5>
-            <img src="/assets/images/main-footer.jpg">
-          </div>
-        </div>
-      </div>
+      UI Case Study - Hotel Booking Application
+    </div>
+  </div>
+    </div>
 
-      <div class="containerfluid" class="align">
-          <div class="row">
-            <div class="col-md-3">
-              <img class="main" src="/assets/images/main.jpg">
-            </div>
-              <div class="col-md-9" class="body">
-             <h3>Welcome to Case study for Hotel Booking</h3>
-          <p>This Sample demonstrates how to use Angular 4 and Bootstrap to develop a single page application</p><br><br>
-          <ul>
-            <li>Angular 4 as MV framework</li>
-            <li>Bootstrap as CSS framework</li>
-            <li>Consumption of REST API</li>
-            <li>Jasmine for Unit Testing and Karma as test runner </li>
-          </ul> <br>
-          <a routerLink="/search" routerLinkActive="active">Start your Case study Experience</a>
-        </div>
+    <div class="row">
+      <div class="col-md-2">
+        <img src="/assets/images/main.jpg" class="main-img">
+      </div>
+      <div class="col-md-10">
+        <span id="span">Welcome to UI Case Study for Hotel Booking</span>
+        <p>The sample demonstrates how to use Angular4 and BootStrap to develop a Single Page Application</p>
+        <br>
+        <p>The key features illustrated in the sample include</p>
+        <ul>
+          <li>Angular4 SPA Framework</li>
+          <li>BootStrap as CSS FrameWork</li>
+          <li>Consumption of REST API Hosted on BlueMix</li>
+          <li>Project Using Yeoman-based Generator-Angular generator for Scaffolding</li>
+        </ul>
+        <a routerLink="/search" routerLinkActive="active">Start your Case Study Experience</a>
       </div>
     </div>
 
-</body>
-</html>
+    <footer>
+      Accenture &copy; 2017
+    </footer>
+</div>

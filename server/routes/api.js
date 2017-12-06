@@ -13,6 +13,7 @@ const connection = (closure) => {
 
 // Error handling
 const sendError = (err, res) => {
+    console.log("error"+err);
     response.status = 501;
     response.message = typeof err == 'object' ? err.message : err;
     res.status(501).json(response);
@@ -27,14 +28,15 @@ let response = {
 
 // Get Hotel
 router.get('/Hotel', (req, res) => {
+    console.log("Inside jjkhgkjhd");
     connection((db) => {
-        db.collection('Hotel').find()
-            //.find({$or:[{Address:req.query.location},{City:req.query.location}]})
+        db.collection('Hotel')
+           .find({$or:[{Address:req.query.location},{City:req.query.location}]})
             .toArray()
             .then((Hotel) => {
                 response.data = Hotel;
                 res.json(response);
-                console.log(hotel)
+                console.log(Hotel)
             })
             .catch((err) => {
                 sendError(err, res);
@@ -60,7 +62,5 @@ router.get('/Hotel', (req, res) => {
             });
     });
 });
-
-
 
 module.exports = router;

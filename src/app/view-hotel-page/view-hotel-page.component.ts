@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
+import { DataService } from '../data.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-view-hotel-page',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewHotelPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private _dataService: DataService) { }
+  id: any;
+  HotelDetails: any;
 
-  ngOnInit() {
+  ngOnInit() { 
+    this.route.params.subscribe(params => {
+
+      this.id = params['id'];
+      this.HotelDetails = this._dataService.getHotelDetail(this.id).subscribe(res => this.HotelDetails = res)
+
+      console.log("Show id :" + this.id)
+      console.log("Show details :" + this.HotelDetails)
+    })
   }
 
 }

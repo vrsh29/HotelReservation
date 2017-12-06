@@ -1,3 +1,33 @@
-<p>
-  view-hotel-page works!
-</p>
+<div class="header">
+  <div class="outside1">
+  <h1>Hotel Application</h1>
+    <div class="image">
+        <h5 class="footer">Accenture 2017</h5>
+      <img src="/assets/images/main-footer.jpg">
+    </div>
+  </div>
+</div>
+
+<div class="containerfluid" class="align">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="main" src="/assets/images/main.jpg">
+      </div>
+
+<div class="col-md-7" class="body">
+  <div *ngFor="let hotelDetails[0] of Hotel">
+<h2>{{hotelDetails[0].Name}}</h2>
+<br> {{hotelDetails[0].Address}}
+<br> {{hotelDetails[0].City}}
+<br> {{hotelDetails[0].Zip}}<br><br>
+<br> Day Rate:{{hotelDetails[0].DayPrice}}
+<br> Night Rate:{{hotelDetails[0].NightPrice}}<br>
+<br><br>
+<button type="button" class="btn btn-success" [routerLink]="['/book-hotel',hotelDetails[0].id]">Book Hotel</button>
+</div>
+</div>
+
+<footer>
+  Accenture &copy; 2017
+</footer>
+</div>

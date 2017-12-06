@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Routes, Router} from '@angular/router';
 import { DataService } from '../data.service';
 import { FormControl, FormGroup , Validators} from '@angular/forms';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-results-page',
@@ -10,18 +12,20 @@ import { FormControl, FormGroup , Validators} from '@angular/forms';
   styleUrls: ['./results-page.component.css']
 })
 export class ResultsPageComponent implements OnInit {
-  hotel:any;
-
-  searchValue: string;
+  Hotel:any;
+  searchValue: any;
   result: any;
-  constructor(private route: ActivatedRoute, private dataService: DataService) { }
  
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataService: DataService) { }
+
   ngOnInit() 
   {
-   this.route.params.subscribe(params => {
+   this.activatedRoute.params.subscribe(params =>{
 
-   //this.dataService.getHotelDetails(params['location'],3).subscribe(res => this.hotel=res );
-   console.log("obj"+this.hotel);
-  });
-  }
-  }
+   // console.log("obj"+params['location']);
+  this.dataService.getHotelDetails(params['location'],params['result']).subscribe(res => this.Hotel = res);
+   
+     }
+    );
+}
+}

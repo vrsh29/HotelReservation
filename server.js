@@ -4,6 +4,12 @@ const path = require('path');
 const http = require('http');
 const app = express();
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
 
