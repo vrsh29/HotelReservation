@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
@@ -53,3 +54,20 @@ export class BookHotelComponent implements OnInit {
   }
 
 }
+=======
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-book-hotel',
+  templateUrl: './book-hotel.component.html',
+  styleUrls: ['./book-hotel.component.css']
+})
+export class BookHotelComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+>>>>>>> 88aaa41b17b6958c32fdaa35bae06fe436f45ac9
