@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormsModule,  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, AbstractControl } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-search-page',
@@ -10,20 +11,31 @@ import { Router, RouterModule, Routes } from '@angular/router';
 })
 
 export class SearchPageComponent {
-num = [1, 2, 3 , 4, 5, 6, 7, 8];
 
-  // numForm = new FormGroup({
-  //   MaxResults: new FormControl
-  // });
+  number: number[];
+  formGroup: FormGroup;
+  search: AbstractControl;
+  numb: AbstractControl;
+  hotelForm:any;
+  users;
 
-  // hotelForm= new FormGroup({
-  //   Search_String: new FormControl
-  // });
 
-  constructor(private fb: FormBuilder, private router: Router) {
-  }
+  constructor(private fb: FormBuilder, private router: Router, private _dataService: DataService) {
+    this.number = [1, 2, 3, 4, 5, 6, 7, 8];
+    
+    this.formGroup = fb.group({
+      "numb": ['', Validators.required],
+      "search": ['', Validators.required]
+    })
+    this.numb = this.formGroup.controls['numb'];
+    this.search = this.formGroup.controls['search'];
+
+    // this._dataService.getHotelDetails(location, maxResult)()
+    //   .subscribe(res => this.users = res);
+      }
 
   doSearch(value){
-  this.router.navigate(['result'],value.Search_String);
+    this.router.navigate(['results',value.Search_String,5]);
+    }
 }
-}
+

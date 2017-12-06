@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-    <div class="header">
-        <div class="outside1">
-        <h1>Hotel Application</h1>
-          <div class="image">
-              <h5 class="footer">Accenture 2017</h5>
-            <img src="/assets/images/main-footer.jpg"></div>
-        </div>
-     
+<div class="container-fluid">
+  <div class="row">
+    <div class="outer-header">
+      <div class="header">
+        Hotel Booking Application
+      </div>
+    </div>
+  </div>
 
-      <div class="containerfluid" class="align">
-            <div class="col-md-3">
-              <img class="main" src="/assets/images/main.jpg">
-            </div>        
-            <div class="col-md-9">
-            <h3><i>Search Hotels</i></h3>
-            <form (ngsubmit)="doSearch(hotelForm.value)" [formGroup]="hotelForm">
-              <div class="form-group">
-                <label class="center-block">Search String:
-                  <input class="form-control" formControlName="Search_String">
-                </label>
-            </div>
-          </form>
-                  <label class="center-block">Maximum Result:
-                    <button type="dropdown" class="dropdown-toggle"></button>
-                  </label>
+  <div class="row">
+    <div class="col-md-2">
+      <img src="/assets/images/main.jpg" class="main-img">
+    </div>
+    <div class="col-md-10">
+      <span id="search-text">Search Hotels</span>
+      <div id="search">
+
+            <form (ngsubmit)="doSearch(hotelForm.value)" [formGroup]="hotelForm" class="form-group">
+              <b><label>Search String:</label></b>
+                  <input type="text" [formControl]="search">
+                    <b><label>Maximum Results :</label></b>
+                    <select  [formControl]='numb' id="select">
+                      <option *ngFor="let num of number" [value]="num">{{num}}</option>
+                    </select> 
+                    <input type="submit" class="btn btn-success" id="button" [routerLink]="['/results',hotelForm.get('Search_String').value]">
+                  </form>
   
-          <button type="button"  class="btn btn-success" [routerLink]="['/results',hotelForm.get('Search_String').value ]">Find Hotels</button>
-                <p>value: {{ hotelForm.get('Search_String').value }}</p>
-        </div>
-              </div>
-           </div>
+          <!-- <button type="button"  class="btn btn-success"  ]">Find Hotels</button>
+                <p>value: {{ hotelForm.get('Search_String').value }}</p> -->
+           <footer>
+            Accenture &copy; 2017
+          </footer>
+      </div>
      </body>
     </html>
