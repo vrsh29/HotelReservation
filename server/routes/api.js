@@ -28,7 +28,7 @@ let response = {
 
 // Get Hotel
 router.get('/Hotel', (req, res) => {
-    console.log("Inside jjkhgkjhd");
+    // console.log("Inside jjkhgkjhd");
     connection((db) => {
         db.collection('Hotel')
            .find({$or:[{Address:req.query.location},{City:req.query.location}]})
@@ -45,22 +45,38 @@ router.get('/Hotel', (req, res) => {
     });
 
             router.get('/getHotelDetails', (req, res) => {
-                
-                 console.log("==============:"+req.query);
+               // console.log("Inside db ");
+                 console.log("==============:"+req.query.id);
                   connection((db) => {
                       db.collection('Hotel')
-                          .find({_id:{$eq:req.query.id}})
+                          .find({id:parseInt(req.query.id)})
                           .toArray()
                           .then((Hotel) => {
                               response.data = Hotel;
-                              res.json(response);
+                              res.json(response.data);
               
-                             console.log(Hotel)
+                             console.log(response.data+"mjnonllnlnml");
                           })
                           .catch((err) => {
                               sendError(err, res);
             });
     });
 });
+// router.post('/updateCustomer', urlencodedParser, (req, res) => {
+    
+// //  console.log("==============:"+req.body.custname);
+    
+//       connection((db) => {
+//        // console.log("==============:"+req.body.name);
+//           db.collection('customer').insert({name:req.body.name,address:req.body.address,zipcode:req.body.pin,city:req.body.city})
+//           .then((customer) =>{
+//             console.log("=customer=======:"+customer);
+//             response.data = customer;
+//             res.json(response);;
+//           }
+//         )
+        
+//       });
+//   });
 
 module.exports = router;

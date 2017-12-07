@@ -1,39 +1,31 @@
-<<<<<<< HEAD
-<div class="header">
-  <div class="outside1">
-  <h1>Hotel Application</h1>
-    <div class="image">
-        <h5 class="footer">Accenture 2017</h5>
-      <img src="/assets/images/main-footer.jpg">
+<div class="container-fluid">
+  <div class="row">
+    <div class="outer-header">
+    <div class="header">
+      UI Case Study - Hotel Booking Application
     </div>
   </div>
-</div>
+    </div>
 
-<div class="containerfluid" class="align">
     <div class="row">
-      <div class="col-md-4">
-        <img class="main" src="/assets/images/main.jpg">
-      </div>
+        <div class="col-md-2">
+          <img src="/assets/images/main.jpg" class="main-img">
+        </div>
 
-<div class="col-md-7" class="body">
-  <div *ngFor="let hotelDetails[0] of Hotel">
-<h2>{{hotelDetails[0].Name}}</h2>
-<br> {{hotelDetails[0].Address}}
-<br> {{hotelDetails[0].City}}
-<br> {{hotelDetails[0].Zip}}<br><br>
-<br> Day Rate:{{hotelDetails[0].DayPrice}}
-<br> Night Rate:{{hotelDetails[0].NightPrice}}<br>
-<br><br>
-<button type="button" class="btn btn-success" [routerLink]="['/book-hotel',hotelDetails[0].id]">Book Hotel</button>
-</div>
-</div>
+        <div class="col-md-9" id="details">
+          <h4>{{HotelDetails[0].Name}}<br></h4>
+          {{HotelDetails[0].Address}}<br>
+          {{HotelDetails[0].City}}<br>
+          {{HotelDetails[0].Zip}}<br><br>
+        <b> Day Price: {{HotelDetails[0].DayPrice}} INR</b><br>
+        <b> Night Price: {{HotelDetails[0].NightPrice}} INR</b> <br>
 
-<footer>
-  Accenture &copy; 2017
-</footer>
-</div>
-=======
-<p>
-  view-hotel-page works!
-</p>
->>>>>>> 88aaa41b17b6958c32fdaa35bae06fe436f45ac9
+        <button type="button" class="btn btn-success" [routerLink]="['/book',HotelDetails[0].id]">Book Hotel</button>
+        </div>
+
+        </div>
+
+    <footer>
+        Accenture &copy; 2017
+      </footer>
+    </div>

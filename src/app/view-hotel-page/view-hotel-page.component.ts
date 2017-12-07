@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
@@ -13,34 +12,24 @@ export class ViewHotelPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private _dataService: DataService) { }
   id: any;
-  HotelDetails: any;
+  HotelDetails;
 
   ngOnInit() { 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe(params =>
+      {
+     
+    this._dataService.getHotelDetail(params['id']).subscribe(res=>this.HotelDetails=res);
 
-      this.id = params['id'];
-      this.HotelDetails = this._dataService.getHotelDetail(this.id).subscribe(res => this.HotelDetails = res)
-
-      console.log("Show id :" + this.id)
-      console.log("Show details :" + this.HotelDetails)
+    // this.route.params.subscribe(params => {
+    //   this._dataService.getHotelDetail(params['id']).subscribe(
+    //     res => this.HotelDetails=res);}
+    //   )
+      console.log('Show details :',this.HotelDetails);
     })
   }
-
 }
-=======
-import { Component, OnInit } from '@angular/core';
+      // this.id = params['id'];
+      // this.HotelDetails = this._dataService.getHotelDetail(this.id).subscribe(res => this.HotelDetails = res)
+      // console.log("Show id :" + this.id)
 
-@Component({
-  selector: 'app-view-hotel-page',
-  templateUrl: './view-hotel-page.component.html',
-  styleUrls: ['./view-hotel-page.component.css']
-})
-export class ViewHotelPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
->>>>>>> 88aaa41b17b6958c32fdaa35bae06fe436f45ac9
+    // })

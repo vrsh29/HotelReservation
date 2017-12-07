@@ -1,79 +1,100 @@
-<<<<<<< HEAD
 <div class="container-fluid">
   <div class="row">
     <div class="outer-header">
-      <div class="header">
-        UI Case Study - Hotel Booking Application
+    <div class="header">
+      UI Case Study - Hotel Booking Application
+    </div>
+  </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <img src="/assets/images/main.jpg" class="main-img">
       </div>
-    </div>
-  </div>
+      <div class="col-md-9">
+          <div id="bookHotel">Book Hotel</div>
+          
+        <div *ngIf="successAlert" class="col-md-12">
+          <div class="alert alert-success" id="success-message">Hotel Booking Done</div>
+        </div>
 
-  <div class="row">
-    <div class="col-md-2">
-      <img src="/assets/images/main.jpg" class="main-img">
-  </div>
+        <form (ngSubmit)="saveUser(userForm.value)" [formGroup]="userForm">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="userName">User Name:</label>
+                  <input type="text" class="form-control" formControlName='userName'>
+                </div>
 
-  <form method="Post" class="form-inline" (ngSubmit)="userData()" [formGroup]="userForm">
-    <div>
-      <label for="custname">Customer Name</label>
-      <input type="text" class="form-control" id="custname" formControlName="custname" required>
-    </div>
+                <div class="form-group col-md-4">
+                  <label for="hotelName">Hotel Name:</label>
+                  <input type="text" class="form-control" id="hotelName" value="{{HotelDetails[0].Name}}" readonly>
+                </div>
+              </div>
+
+              <div class="form-row">
+
+                <div class="form-group col-md-4">
+                  <label for="userAddress">User Address:</label>
+                  <input type="text" class="form-control" formControlName="userAddress">
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="userLocation">User Location:</label>
+                  <input type="text" class="form-control" formControlName='userLocation'>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="userZip">User Zip:</label>
+                    <input type="text" class="form-control" formControlName='userZip'>
+                  </div>
+
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="hotelAddress">Hotel Address:</label>
+                    <input type="text" class="form-control" id="hotelAddress" value="{{HotelDetails[0].Address}}" readonly>
+                  </div>
   
-    <div>
-      <label for="HotelName">Hotel Name</label>
-      <input type="text" class="form-control" value="{{hotelDetails[0].name}}">
-    </div>
+                  <div class="form-group col-md-4">
+                    <label for="hotelLocation">Hotel Location:</label>
+                    <input type="text" class="form-control" id="hotelLocation" value="{{HotelDetails[0].City}}" readonly> 
+                  </div>
   
+                  <div class="form-group col-md-4">
+                      <label for="hotelZip">Hotel Zip:</label>
+                      <input type="text" class="form-control" id="hotelZip" value="{{HotelDetails[0].Zip}}" readonly>
+                    </div>
   
-    USER ADDRESS::
-  
-    <div>
-      <label for="custAddress"> Address</label>
-      <input type="text" class="form-control" id="custAddress" formControlName="custAddress" required>
-  
-    </div>
-  
-    <div>
-      <label for="custCity"> City</label>
-      <input type="text" class="form-control" id="custCity" formControlName="custCity" required>
-  
-    </div>
-  
-    <div>
-      <label for="custZip"> Zipcode</label>
-      <input type="text" class="form-control" id="custZip" formControlName="custZip" required>
-  
-    </div>
-  
-    HOTEL ADDRESS:
-  
-    <div>
-      <label for="HotelAddress">Address</label>
-      <input type="text" class="form-control" value="{{hotelDetails[0].address}}">
-    </div>
-  
-    <div>
-      <label for="HotelCity">City</label>
-      <input type="text" class="form-control" value="{{hotelDetails[0].city}}">
-    </div>
-  
-    <div>
-      <label for="HotelZip">Zip</label>
-      <input type="text" class="form-control" value="{{hotelDetails[0].zip}}">
-    </div>
-  
-  
-    <button type="submit" class="btn btn-success">Submit</button>
-  
-  </form>
+                </div>
+
+                <button type="submit" id="submit" class="btn btn-success" (click)="successAlertMethod()" >Save</button>
+                <input type="button" id="cancel" class="btn btn-danger" value="Cancel" [routerLink]="['/view',HotelDetails[0]._id]">
+        </form>
+        
+        <div id="error-messages">
+          <span *ngIf="userForm.get('userName').errors && (userForm.get('userName').touched || userForm.get('userName').dirty)" class="alert alert-danger col-md-12">
+            Please Provide User Name
+          </span>
+
+          <span *ngIf="userForm.get('userAddress').errors && (userForm.get('userAddress').touched || userForm.get('userAddress').dirty)" class="alert alert-danger col-md-12">
+              Please Provide User Address
+            </span>
+
+            <span *ngIf="userForm.get('userLocation').errors && (userForm.get('userLocation').touched || userForm.get('userLocation').dirty)" class="alert alert-danger col-md-12">
+                Please Provide User Location
+              </span>
+
+              <span *ngIf="userForm.get('userZip').errors && (userForm.get('userZip').touched || userForm.get('userZip').dirty)" class="alert alert-danger col-md-12">
+                  Please Provide User Zip Code
+                </span>
+        </div>
+      </div>
       
 
-  <footer>
+</div>
+
+<footer>
     Accenture &copy; 2017
   </footer>
 </div>
-=======
-<p>
-  book-hotel works!
-</p>
->>>>>>> 88aaa41b17b6958c32fdaa35bae06fe436f45ac9

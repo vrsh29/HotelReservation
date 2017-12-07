@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, URLSearchParams  } from '@angular/http';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -45,65 +44,37 @@ export class DataService {
 // });
      //.map(Hotel => this.Hotel = Hotel.json().data);
        //console.log("hsandsd"+this.Hotel);
- 
-
    getHotelDetail(id){
+    console.log("Pass id" + id);
+    return this._httpClient.get("http://localhost:3000/api/getHotelDetails",{params: new HttpParams()
+    .set('id',id)
+  });
+        // console.log("Pass Id"+id);
+        // this.params.set('id',id);
+        //  this.requestOptions.search= this.params;
     
-        console.log("Pass Id"+id);
-        this.params.set('id',id);
-         this.requestOptions.search= this.params;
-    
-              return this._http.get('http://localhost:3000/api/getHotelDetail',
-               this.requestOptions)
-               .map(Hotel => this.Hotel = Hotel.json().data);
+        //       return this._http.get('http://localhost:3000/api/getHotelDetail',
+        //        this.requestOptions)
+        //        .map(Hotel => this.Hotel = Hotel.json().data);
     
         }
 
-  saveUserDetails(name, address, pin, city) {
+  saveUserDetails(userName,userAddress,userLocation,userZip,HotelID) {
     console.log("USERNAME" + name);
+      //  console.log("Name",Username);
+      // console.log("Address",UserAddress);
+      // console.log("City",UserLocation);
+      // console.log("Pin",Zip);
 
-    return this._http.post('http://localhost:4000/api/updateCustomer',
-      { name, address, pin, city })
-      .map(Hotel => this.Hotel = Hotel.json().data);
+    return this._httpClient.post('http://localhost:3000/saveHotel',
+    {
+
+      userName: userName,
+      userAddress: userAddress,
+      userLocation: userLocation,
+      userZip: userZip,
+      HotelID:HotelID 
+    })
+
   }
 }
-=======
-import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, URLSearchParams  } from '@angular/http';
-import {HttpClient,HttpParams} from '@angular/common/http';
-import 'rxjs/add/operator/map';
-
-@Injectable()
-export class DataService {
- result;
- hotels:any;
-
- params: URLSearchParams = new URLSearchParams();
- requestOptions = new RequestOptions();
-
-  constructor(private _http: Http, private _httpClient: HttpClient) { }
-
-  getHotelDetails(location,maxResult) {
-
-    this.params.set('location',location);
-    this.params.set('count',maxResult);
-    this.requestOptions.search = this.params;
-
-    this.hotels = this._http.get('http://localhost:3000/api/Hotel',this.requestOptions)
-    // .map(hotels => this.hotels = hotels.json().data);
-       console.log("hsandsd"+this.hotels);
-  }
-}
-  // getHotelDetail(id){
-    
-  //       console.log("Pass Id"+id);
-  //       this.params.set('id',id);
-  //        this.requestOptions.search= this.params;
-    
-  //             return this._http.get('http://localhost:4000/api/getHotelDetail',
-  //              this.requestOptions)
-  //              .map(hotels => this.hotels = hotels.json().data);
-    
-  //       }
-
->>>>>>> 88aaa41b17b6958c32fdaa35bae06fe436f45ac9
